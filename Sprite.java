@@ -136,14 +136,15 @@ public class Sprite
 		//First do a check if the frame should be incremented, bigger frame delay = longer animation
 		if((frameDelay > 0) && (--frameTrigger <= 0))
 		{
+			
 			//reset frame trigger
 			frameTrigger = frameDelay;
 			
 			//increment frame
-			frame += frameInc;
-			
+			frame += 1;
+			System.out.println("am i here" +frame);
 			//Now frame is checked to make sure it is inside the bounds of the image, so that later it can be indexed into the array
-			if(frame > image.length)
+			if(frame > image.length-1)
 			{
 				frame = 0;
 			}
@@ -256,10 +257,11 @@ public class Sprite
 		  return action;
 		}
 	
-	public void drawSprite(Graphics g)
+	public void draw(Graphics g)
 	{
 		if(!hidden)
 		{
+			System.out.println("Whats up here??");
 			g.drawImage(image[frame], position.x, position.y, component);
 		}
 	}
